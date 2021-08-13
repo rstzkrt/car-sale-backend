@@ -18,16 +18,19 @@ public class Advert {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long advertId;
 
-    @ManyToOne()
-    private AppUser appUser;
-
     private String description;
     private String title;
     private Date postDate;
     private Long price;
     private String address;
 
+    @ManyToOne()
+    private AppUser appUser;
+
     @OneToMany
     private List<Report> reports;
+
+    @ManyToMany
+    private List<AppUser> favUsers;
 
 }

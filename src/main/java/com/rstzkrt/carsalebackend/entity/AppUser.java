@@ -31,4 +31,11 @@ public class AppUser {
    @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
     private List<Report> reports;
 
+   @ManyToMany
+   @JoinTable(
+           name = "Favourite",
+           joinColumns = @JoinColumn(name = "appUserId"),
+           inverseJoinColumns = @JoinColumn(name = "advertId"))
+    private List<Advert> favouriteAdverts;
+
 }
