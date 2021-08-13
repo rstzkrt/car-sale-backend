@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,10 +17,16 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long appUser_Id;
+    private Long appUserId;
 
     private String firstName;
     private String lastName;
     private String email;
+    private String role;
+    private String avatar;
+    private Date dateOfBirth;
+
+    @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
+    private List<Advert> adverts;
 
 }
