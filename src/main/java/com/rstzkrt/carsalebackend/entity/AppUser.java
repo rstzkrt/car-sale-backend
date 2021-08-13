@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -28,5 +27,8 @@ public class AppUser {
 
     @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
     private List<Advert> adverts;
+
+   @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
+    private List<Report> reports;
 
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,7 +19,6 @@ public class Advert {
     private Long advertId;
 
     @ManyToOne()
-    @JoinColumn(name = "postedBy")
     private AppUser appUser;
 
     private String description;
@@ -26,5 +26,8 @@ public class Advert {
     private Date postDate;
     private Long price;
     private String address;
+
+    @OneToMany
+    private List<Report> reports;
 
 }
