@@ -16,6 +16,8 @@ public class AppUserServiceImpl implements AppUserService{
 
     @Autowired
     private IAppUserRepository userRepository;
+
+    @Autowired
     private IAdvertRepository advertRepository;
 
     @Override
@@ -24,7 +26,7 @@ public class AppUserServiceImpl implements AppUserService{
     }
 
     @Override
-    public List<Advert> getFavourites() {
+    public List<Advert> getFavourites(Long id) {
         return null;
     }
 

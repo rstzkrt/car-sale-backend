@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AppUserService {
     AppUser createUser();
-    List<Advert> getFavourites();
+    List<Advert> getFavourites(Long id);
     AppUser favorite(String dealId) throws Exception;
     AppUser unFavorite(String dealId) throws Exception;
     
