@@ -25,7 +25,7 @@ public class Advert {
     private String address;
 
     @ManyToOne()
-    @JoinColumn(name = "appUser_id")
+    @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
     @OneToMany

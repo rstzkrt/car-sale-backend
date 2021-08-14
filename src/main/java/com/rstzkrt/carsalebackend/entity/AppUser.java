@@ -34,7 +34,7 @@ public class AppUser {
     @ManyToMany
     @JoinTable(
             name = "user_favourites",
-            joinColumns = @JoinColumn(name = "appUser_id"),
+            joinColumns = @JoinColumn(name = "app_user_id"),
             inverseJoinColumns = @JoinColumn(name = "advert_id"))
      private List<Advert> favouriteAdverts;
 
