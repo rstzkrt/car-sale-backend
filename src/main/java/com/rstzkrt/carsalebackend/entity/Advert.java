@@ -24,6 +24,10 @@ public class Advert {
     private Long price;
     private String address;
 
+    @OneToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
+
     @ManyToOne()
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
@@ -32,8 +36,8 @@ public class Advert {
     private List<Report> reports;
 
     @OneToMany
-    @JoinColumn(referencedColumnName = "advert_id")
     private List<Image> advertImages;
+
 
     //    users which liked the advert
 //    @ManyToMany
