@@ -28,14 +28,14 @@ public class AppUser {
     @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
     private List<Advert> adverts;
 
-   @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
     private List<Report> reports;
 
-   @ManyToMany
-   @JoinTable(
-           name = "Favourite",
-           joinColumns = @JoinColumn(name = "appUserId"),
-           inverseJoinColumns = @JoinColumn(name = "advertId"))
-    private List<Advert> favouriteAdverts;
+    @ManyToMany
+    @JoinTable(
+            name = "user_favourites",
+            joinColumns = @JoinColumn(name = "appUser_id"),
+            inverseJoinColumns = @JoinColumn(name = "advert_id"))
+     private List<Advert> favouriteAdverts;
 
 }

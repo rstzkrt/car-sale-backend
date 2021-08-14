@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,9 +19,11 @@ public class Report {
     private Long report_Id;
 
     @ManyToOne
+    @JoinColumn(name = "appUser_id")
     private AppUser appUser;
 
     @ManyToOne
+    @JoinColumn(name = "advert_id")
     private Advert advert;
 
     private String description;

@@ -25,12 +25,13 @@ public class Advert {
     private String address;
 
     @ManyToOne()
+    @JoinColumn(name = "appUser_id")
     private AppUser appUser;
 
     @OneToMany
     private List<Report> reports;
 
-    @ManyToMany
-    private List<AppUser> favUsers;
-
+    //    users which liked the advert
+//    @ManyToMany
+//    private List<AppUser> likedUsers;
 }
