@@ -1,5 +1,9 @@
 package com.rstzkrt.carsalebackend.entity;
 
+import com.rstzkrt.carsalebackend.entity.AppUser;
+import com.rstzkrt.carsalebackend.entity.Car;
+import com.rstzkrt.carsalebackend.entity.Image;
+import com.rstzkrt.carsalebackend.entity.Report;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
