@@ -1,5 +1,6 @@
 package com.rstzkrt.carsalebackend;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,4 +11,9 @@ public class CarSaleBackendApplication {
         SpringApplication.run(CarSaleBackendApplication.class, args);
     }
 
+    CommandLineRunner run(){
+       return args -> {
+           //add mock data to database
+       } ;
+    }
 }
