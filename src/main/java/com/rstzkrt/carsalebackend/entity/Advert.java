@@ -31,6 +31,10 @@ public class Advert {
     @OneToMany
     private List<Report> reports;
 
+    @OneToMany
+    @JoinColumn(referencedColumnName = "advert_id")
+    private List<Image> advertImages;
+
     //    users which liked the advert
 //    @ManyToMany
 //    private List<AppUser> likedUsers;
