@@ -44,8 +44,4 @@ public class Advert {
     @OneToMany
     private List<Image> advertImages;
 
-
-    //    users which liked the advert
-//    @ManyToMany
-//    private List<AppUser> likedUsers;
 }
