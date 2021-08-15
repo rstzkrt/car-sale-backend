@@ -20,11 +20,17 @@ public class Car {
 
     private String brand;
     private String transmission;
-    private Long mileage ;
+    private Double mileage ;
     private String bodyType;
     private String fuelType;
     private String condition;
 
-    @OneToOne(mappedBy = "car")
-    private Advert advert;
+    public Car(String brand, String transmission, Double mileage, String bodyType, String fuelType, String condition) {
+        this.brand = brand;
+        this.transmission = transmission;
+        this.mileage = mileage;
+        this.bodyType = bodyType;
+        this.fuelType = fuelType;
+        this.condition = condition;
+    }
 }

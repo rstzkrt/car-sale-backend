@@ -1,16 +1,12 @@
 package com.rstzkrt.carsalebackend.entity;
 
-import com.rstzkrt.carsalebackend.entity.AppUser;
-import com.rstzkrt.carsalebackend.entity.Car;
-import com.rstzkrt.carsalebackend.entity.Image;
-import com.rstzkrt.carsalebackend.entity.Report;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -26,8 +22,8 @@ public class Advert {
 
     private String description;
     private String title;
-    private Date postDate;
-    private Long price;
+    private LocalDate postDate;
+    private Double price;
     private String address;
 
     @OneToOne
@@ -35,13 +31,20 @@ public class Advert {
     private Car car;
 
     @ManyToOne()
-    @JoinColumn(name = "app_user_id")
+    @JoinColumn
     private AppUser appUser;
 
     @OneToMany
     private List<Report> reports;
 
     @OneToMany
-    private List<Image> advertImages;
+    private List<Image> Images;
 
+    public Advert(String description, String title, LocalDate postDate, Double price, String address) {
+        this.description = description;
+        this.title = title;
+        this.postDate = postDate;
+        this.price = price;
+        this.address = address;
+    }
 }

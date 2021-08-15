@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -25,7 +25,7 @@ public class AppUser {
     private String email;
     private String role;
     private String avatar;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
     private List<Advert> adverts;
@@ -40,4 +40,12 @@ public class AppUser {
             inverseJoinColumns = @JoinColumn(name = "advert_id"))
      private List<Advert> favouriteAdverts;
 
+    public AppUser(String firstName, String lastName, String email, String role, String avatar, LocalDate dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.role = role;
+        this.avatar = avatar;
+        this.dateOfBirth = dateOfBirth;
+    }
 }

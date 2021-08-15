@@ -29,4 +29,8 @@ public class Report {
     private Advert advert;
 
     private String description;
+
+    public Report(String description) {
+        this.description = description;
+    }
 }
