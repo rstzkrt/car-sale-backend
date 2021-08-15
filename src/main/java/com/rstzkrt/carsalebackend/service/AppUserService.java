@@ -1,14 +1,10 @@
 package com.rstzkrt.carsalebackend.service;
 
 import com.rstzkrt.carsalebackend.entity.Advert;
-import com.rstzkrt.carsalebackend.entity.AppUser;
+
 
 import java.util.List;
 
 public interface AppUserService {
-    AppUser createUser();
-    List<Advert> getFavourites(Long id);
-    AppUser favorite(String dealId) throws Exception;
-    AppUser unFavorite(String dealId) throws Exception;
-    
+    List<Long> getFavourites(Long id);
 }
