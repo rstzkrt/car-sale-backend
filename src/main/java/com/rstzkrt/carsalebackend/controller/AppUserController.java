@@ -1,6 +1,7 @@
 package com.rstzkrt.carsalebackend.controller;
 
 import com.rstzkrt.carsalebackend.entity.Advert;
+import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.service.AdvertService;
 import com.rstzkrt.carsalebackend.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,10 @@ public class AppUserController {
     public ResponseEntity<List<Advert>> getFavourites(@PathVariable Long userId){
         List<Long> listAdvertId=appUserService.getFavourites(userId);
         return ResponseEntity.ok(advertService.getAdverts(listAdvertId));
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<List<AppUser>> getFavourites(){
+        return ResponseEntity.ok(appUserService.getAllUsers());
     }
 }

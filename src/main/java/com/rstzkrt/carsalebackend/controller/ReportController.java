@@ -1,6 +1,5 @@
 package com.rstzkrt.carsalebackend.controller;
 
-import com.rstzkrt.carsalebackend.repository.IReportRepository;
 import com.rstzkrt.carsalebackend.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,5 +1,6 @@
 package com.rstzkrt.carsalebackend.service;
 
+import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.repository.IAppUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,13 @@ public class AppUserServiceImpl implements AppUserService{
     @Autowired
     private IAppUserRepository userRepository;
 
-
     @Override
     public List<Long> getFavourites(Long id) {
         return userRepository.getFavouritesById(id);
+    }
+
+    @Override
+    public List<AppUser> getAllUsers(){
+        return userRepository.findAll();
     }
 }
