@@ -25,7 +25,7 @@ public interface IAppUserRepository extends JpaRepository<AppUser,Long> {
     @Transactional
     @Modifying
     @Query(value =
-            "insert into advert_images (app_user_app_user_id,adverts_advert_id) values (:app_user_app_user_id, :adverts_advert_id)",
+            "insert into app_user_adverts (app_user_app_user_id,adverts_advert_id) values (:app_user_app_user_id, :adverts_advert_id)",
             nativeQuery = true)
     void saveAdverts(@Param("app_user_app_user_id")Long app_user_app_user_id, @Param("adverts_advert_id")Long adverts_advert_id);
 
@@ -33,7 +33,7 @@ public interface IAppUserRepository extends JpaRepository<AppUser,Long> {
     @Transactional
     @Modifying
     @Query(value =
-            "insert into advert_reports (app_user_app_user_id,reports_report_id) values (:app_user_app_user_id, :reports_report_id)",
+            "insert into app_user_reports (app_user_app_user_id,reports_report_id) values (:app_user_app_user_id, :reports_report_id)",
             nativeQuery = true)
     void saveReports(@Param("app_user_app_user_id")Long app_user_app_user_id, @Param("reports_report_id")Long reports_report_id);
 }

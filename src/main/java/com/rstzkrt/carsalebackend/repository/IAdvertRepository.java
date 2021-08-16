@@ -15,7 +15,7 @@ public interface IAdvertRepository extends JpaRepository<Advert,Long> {
     @Transactional
     @Modifying
     @Query(value =
-            "insert into advert_images (advert_advert_id,advert_id) values (:advert_advert_id, :images_id)",
+            "insert into advert_images (advert_advert_id,images_id) values (:advert_advert_id, :images_id)",
             nativeQuery = true)
     void saveImages(@Param("advert_advert_id")Long advert_advert_id, @Param("images_id")Long images_id);
 
