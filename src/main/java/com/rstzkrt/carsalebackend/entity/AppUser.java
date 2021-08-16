@@ -1,5 +1,7 @@
 package com.rstzkrt.carsalebackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,10 +34,12 @@ public class AppUser {
     private String avatar;
     private LocalDate dateOfBirth;
 
-    @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
+//    @JsonIgnore
+    @JsonManagedReference
+    @OneToMany(targetEntity = Advert.class)
     private List<Advert> adverts;
 
-    @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Report.class)
     private List<Report> reports;
 
     @ManyToMany
