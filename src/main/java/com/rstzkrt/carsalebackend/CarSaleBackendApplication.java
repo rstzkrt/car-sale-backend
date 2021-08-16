@@ -45,9 +45,9 @@ public class CarSaleBackendApplication {
            carRepository.save(car2);
            carRepository.save(car3);
            //
-           Advert advert1= new Advert("Description1","title1",LocalDate.now(),111.0,"address1");
-           Advert advert2= new Advert("Description2","title2",LocalDate.now(),222.0,"address2");
-           Advert advert3= new Advert("Description3","title3",LocalDate.now(),333.0,"address3");
+           Advert advert1= new Advert("Description1","title1",LocalDate.now(),111.0,"address1",car1,appUser1);
+           Advert advert2= new Advert("Description2","title2",LocalDate.now(),222.0,"address2",car2,appUser2);
+           Advert advert3= new Advert("Description3","title3",LocalDate.now(),333.0,"address3",car3,appUser1);
 
            advertRepository.save(advert1);
            advertRepository.save(advert2);
