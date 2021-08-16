@@ -72,9 +72,9 @@ public class CarSaleBackendApplication {
            appUserRepository.saveToFavourites(3L,3L);
            appUserRepository.saveToFavourites(3L,2L);
            //
-           Report report1= new Report("Description1");
-           Report report2= new Report("Description2");
-           Report report3= new Report("Description3");
+           Report report1= new Report("Description1",appUser1,advert1);
+           Report report2= new Report("Description2",appUser2,advert2);
+           Report report3= new Report("Description3",appUser3,advert3);
 
            reportRepository.save(report1);
            reportRepository.save(report2);

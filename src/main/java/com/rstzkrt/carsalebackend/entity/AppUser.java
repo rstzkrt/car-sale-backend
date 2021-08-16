@@ -39,6 +39,7 @@ public class AppUser {
     @OneToMany(targetEntity = Advert.class)
     private List<Advert> adverts;
 
+    @JsonManagedReference
     @OneToMany(targetEntity = Report.class)
     private List<Report> reports;
 

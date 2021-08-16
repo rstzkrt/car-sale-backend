@@ -1,6 +1,7 @@
 package com.rstzkrt.carsalebackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,12 +37,12 @@ public class Advert {
     @JoinColumn(name = "car_id")
     private Car car;
 
-
     @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "app_user_app_user_id")
     private AppUser postedBy;
 
+    @JsonManagedReference
     @OneToMany
     private List<Report> reports;
 
@@ -57,5 +58,4 @@ public class Advert {
         this.car=car;
         this.postedBy=postedBy;
     }
-
 }
