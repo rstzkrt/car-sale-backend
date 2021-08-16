@@ -17,5 +17,12 @@ public interface IAdvertRepository extends JpaRepository<Advert,Long> {
     @Query(value =
             "insert into advert_images (advert_advert_id,advert_id) values (:advert_advert_id, :images_id)",
             nativeQuery = true)
-    void saveToAdvertImages(@Param("advert_advert_id")Long advert_advert_id, @Param("images_id")Long images_id);
+    void saveImages(@Param("advert_advert_id")Long advert_advert_id, @Param("images_id")Long images_id);
+
+    @Transactional
+    @Modifying
+    @Query(value =
+            "insert into advert_reports (advert_advert_id,reports_report_id) values (:advert_advert_id, :reports_report_id)",
+            nativeQuery = true)
+    void saveReports(@Param("advert_advert_id")Long advert_advert_id, @Param("reports_report_id")Long reports_report_id);
 }
