@@ -24,7 +24,7 @@ public class CarSaleBackendApplication {
         SpringApplication.run(CarSaleBackendApplication.class);
     }
 
-    //@Bean
+    @Bean
     CommandLineRunner run(ICarRepository carRepository, IAdvertRepository advertRepository, IAppUserRepository appUserRepository, IReportRepository reportRepository,IImageRepository imageRepository){
        return args -> {
 

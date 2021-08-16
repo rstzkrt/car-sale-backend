@@ -28,4 +28,14 @@ public class AdvertServiceImpl implements AdvertService {
         return advertRepository.findByAdvertIdIn(idList);
     }
 
+    @Override
+    public List<Advert> getAdverts() {
+        return advertRepository.findAll();
+    }
+
+    @Override
+    public Advert createAdvert() {
+        return null;
+    }
+
 }
