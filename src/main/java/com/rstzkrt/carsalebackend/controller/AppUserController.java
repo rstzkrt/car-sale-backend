@@ -30,4 +30,9 @@ public class AppUserController {
     public ResponseEntity<List<AppUser>> getFavourites(){
         return ResponseEntity.ok(appUserService.getAllUsers());
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<AppUser> createAppUser() {
+        return ResponseEntity.ok().build();
+    }
 }
