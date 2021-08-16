@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -17,7 +19,10 @@ import java.util.List;
 public class Advert {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "advert_sequence",
+            sequenceName = "advert_sequence",
+            allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE,generator = "advert_sequence")
     private Long advertId;
 
     private String description;

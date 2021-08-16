@@ -5,10 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Data
@@ -18,7 +17,11 @@ import javax.persistence.ManyToOne;
 public class Report {
 
     @Id
-    private Long report_Id;
+    @SequenceGenerator(name = "report_sequence",
+            sequenceName = "report_sequence",
+            allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE,generator = "report_sequence")
+    private Long reportId;
 
     @ManyToOne
     @JoinColumn(name = "app_user_id")

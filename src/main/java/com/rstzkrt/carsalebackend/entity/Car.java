@@ -7,6 +7,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -15,7 +17,10 @@ import javax.persistence.*;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "car_sequence",
+            sequenceName = "car_sequence",
+            allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE,generator = "car_sequence")
     private Long carId;
 
     private String brand;

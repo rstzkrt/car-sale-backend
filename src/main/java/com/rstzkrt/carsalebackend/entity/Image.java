@@ -5,10 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Data
@@ -18,7 +17,10 @@ import javax.persistence.Id;
 public class Image {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "image_sequence",
+            sequenceName = "image_sequence",
+            allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE,generator = "image_sequence")
     private Long id;
 
     private String link;

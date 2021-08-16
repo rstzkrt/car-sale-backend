@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,7 +19,10 @@ import java.util.List;
 public class AppUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "app_user_sequence",
+            sequenceName = "app_user_sequence",
+            allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE,generator = "app_user_sequence")
     private Long appUserId;
 
     private String firstName;
