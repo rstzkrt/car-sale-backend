@@ -20,4 +20,20 @@ public interface IAppUserRepository extends JpaRepository<AppUser,Long> {
             "insert into user_favourites (app_user_id,advert_id) values (:userId, :advertId)",
             nativeQuery = true)
     void saveToFavourites(@Param("userId")Long userId,@Param("advertId")Long advertId);
+
+
+    @Transactional
+    @Modifying
+    @Query(value =
+            "insert into advert_images (app_user_app_user_id,adverts_advert_id) values (:app_user_app_user_id, :adverts_advert_id)",
+            nativeQuery = true)
+    void saveAdverts(@Param("app_user_app_user_id")Long app_user_app_user_id, @Param("adverts_advert_id")Long adverts_advert_id);
+
+
+    @Transactional
+    @Modifying
+    @Query(value =
+            "insert into advert_reports (app_user_app_user_id,reports_report_id) values (:app_user_app_user_id, :reports_report_id)",
+            nativeQuery = true)
+    void saveReports(@Param("app_user_app_user_id")Long app_user_app_user_id, @Param("reports_report_id")Long reports_report_id);
 }
