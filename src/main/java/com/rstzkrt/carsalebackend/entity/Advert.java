@@ -38,7 +38,7 @@ public class Advert {
     private Car car;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()//fetch = FetchType.LAZY
     @JoinColumn(name = "app_user_app_user_id")
     private AppUser postedBy;
 

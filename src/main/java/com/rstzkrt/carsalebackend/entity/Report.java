@@ -25,12 +25,12 @@ public class Report {
     private Long reportId;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()//fetch = FetchType.LAZY
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()//fetch = FetchType.LAZY
     @JoinColumn(name = "advert_id")
     private Advert advert;
 
