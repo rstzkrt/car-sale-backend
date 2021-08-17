@@ -23,7 +23,7 @@ public class AdvertController {
         return ResponseEntity.ok(advertService.getAdverts());
     }
 
-    @GetMapping("/adverts/{userId}")
+    @GetMapping("/userAdverts/{userId}")
     public ResponseEntity<List<Advert>> getAdvertsByUserId(@PathVariable Long userId){
         return ResponseEntity.ok(advertService.getAdvertsByUserId(userId));
     }
