@@ -21,16 +21,16 @@ public class AdvertController {
         return ResponseEntity.ok(advertService.getAdverts());
     }
 
-    @GetMapping("/reports/{appUserId}")//gets reports by appUser id
-    public ResponseEntity<List<Report>> getReportsById(@PathVariable Long appUserId){
-        //
-        return ResponseEntity.ok().build();
+    @GetMapping("/adverts/{userId}")
+    public ResponseEntity<List<Advert>> getAdvertsByUserId(@PathVariable Long userId){
+        return ResponseEntity.ok(advertService.getAdvertsByUserId(userId));
     }
-
 
     @PostMapping("/create")
     public ResponseEntity<Advert> createAdverts(@RequestBody Advert advert){
-
+        //
         return ResponseEntity.ok(advertService.createAdvert(advert));
     }
+
+
 }

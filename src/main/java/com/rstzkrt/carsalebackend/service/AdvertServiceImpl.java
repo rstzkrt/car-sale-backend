@@ -34,6 +34,11 @@ public class AdvertServiceImpl implements AdvertService {
     }
 
     @Override
+    public List<Advert> getAdvertsByUserId(Long userId) {
+        return advertRepository.findAllByPostedBy_AppUserId(userId);
+    }
+
+    @Override
     public Advert createAdvert(Advert advert) {
         return advertRepository.save(advert);
     }

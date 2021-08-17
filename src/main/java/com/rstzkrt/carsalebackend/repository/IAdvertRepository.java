@@ -1,6 +1,7 @@
 package com.rstzkrt.carsalebackend.repository;
 
 import com.rstzkrt.carsalebackend.entity.Advert;
+import com.rstzkrt.carsalebackend.entity.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,6 +12,8 @@ import java.util.List;
 
 public interface IAdvertRepository extends JpaRepository<Advert,Long> {
     List<Advert> findByAdvertIdIn(List<Long> AdvertIds);
+
+    List<Advert> findAllByPostedBy_AppUserId(Long userId);
 
     @Transactional
     @Modifying

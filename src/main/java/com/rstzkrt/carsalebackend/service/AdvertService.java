@@ -7,6 +7,7 @@ import java.util.List;
 public interface AdvertService {
     List<Advert> getAdverts(List<Long> idList);
     List<Advert> getAdverts();
+    List<Advert> getAdvertsByUserId(Long userId);
 
     Advert createAdvert(Advert advert);
 }
