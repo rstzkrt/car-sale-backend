@@ -1,6 +1,7 @@
 package com.rstzkrt.carsalebackend.repository;
 
 import com.rstzkrt.carsalebackend.entity.AppUser;
+import com.rstzkrt.carsalebackend.entity.Report;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

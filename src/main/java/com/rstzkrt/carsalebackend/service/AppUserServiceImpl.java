@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +26,11 @@ public class AppUserServiceImpl implements AppUserService{
     @Override
     public List<AppUser> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    @Override
+    public Optional<AppUser> getUserById(Long userId) {
+        return userRepository.findById(userId);
     }
 
     @Override

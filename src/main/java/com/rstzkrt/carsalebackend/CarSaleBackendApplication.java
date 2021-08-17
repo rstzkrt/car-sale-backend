@@ -66,8 +66,6 @@ public class CarSaleBackendApplication {
            advertRepository.saveImages(1L,3L);
            //
            appUserRepository.saveToFavourites(1L,1L);
-           appUserRepository.saveToFavourites(1L,1L);
-           appUserRepository.saveToFavourites(2L,2L);
            appUserRepository.saveToFavourites(2L,2L);
            appUserRepository.saveToFavourites(3L,3L);
            appUserRepository.saveToFavourites(3L,2L);

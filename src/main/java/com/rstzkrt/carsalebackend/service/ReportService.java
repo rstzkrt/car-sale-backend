@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface ReportService {
 
+    List<Long> getReportIdsByUserId(Long userId);
+
+    List<Report> getAllReportsByUserId(List<Long> reportIds);
 }
