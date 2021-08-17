@@ -1,6 +1,8 @@
 package com.rstzkrt.carsalebackend.service;
 
+import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
+import com.rstzkrt.carsalebackend.entity.Report;
 import com.rstzkrt.carsalebackend.repository.IAppUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +26,21 @@ public class AppUserServiceImpl implements AppUserService{
     public List<AppUser> getAllUsers(){
         return userRepository.findAll();
     }
+
+    @Override
+    public AppUser createUser(AppUser appUser) {
+        return userRepository.save(appUser);
+    }
+
+    @Override
+    public void createAdvert(AppUser appUser,Advert advert) {
+         userRepository.saveAdverts(appUser.getAppUserId(), advert.getAdvertId());
+    }
+
+    @Override
+    public void createReport(AppUser appUser,Report report) {
+        userRepository.saveReports(appUser.getAppUserId(),report.getReportId());
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.rstzkrt.carsalebackend.controller;
 
 import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
+import com.rstzkrt.carsalebackend.entity.Report;
 import com.rstzkrt.carsalebackend.service.AdvertService;
 import com.rstzkrt.carsalebackend.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,20 @@ public class AppUserController {
         return ResponseEntity.ok(advertService.getAdverts(listAdvertId));
     }
 
+    @GetMapping("/reports/{appUserId}")//gets reports by appUser id
+    public ResponseEntity<List<Report>> getReportsById(@PathVariable Long appUserId){
+        //
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/users")
     public ResponseEntity<List<AppUser>> getFavourites(){
         return ResponseEntity.ok(appUserService.getAllUsers());
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AppUser> createAppUser() {
+    public ResponseEntity<AppUser> createAppUser(@RequestBody AppUser appUser) {
+
         return ResponseEntity.ok().build();
     }
 }
