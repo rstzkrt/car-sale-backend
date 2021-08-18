@@ -1,11 +1,15 @@
 package com.rstzkrt.carsalebackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -14,7 +18,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Image {
+public class Image implements Serializable {
 
     @Id
     @SequenceGenerator(name = "image_sequence",

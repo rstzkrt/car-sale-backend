@@ -1,10 +1,7 @@
 package com.rstzkrt.carsalebackend.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -31,8 +28,7 @@ public class Car {
     private String fuelType;
     private String condition;
 
-    @JsonIgnore//
-    @OneToOne(mappedBy = "car")
+    @OneToOne(mappedBy ="car")
     private Advert advert;
 
     public Car(String brand, String transmission, Double mileage, String bodyType, String fuelType, String condition) {

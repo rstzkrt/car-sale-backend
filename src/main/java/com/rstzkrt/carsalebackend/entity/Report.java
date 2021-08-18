@@ -1,6 +1,8 @@
 package com.rstzkrt.carsalebackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,12 +26,12 @@ public class Report {
     @GeneratedValue(strategy = SEQUENCE,generator = "report_sequence")
     private Long reportId;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne()//fetch = FetchType.LAZY
     @JoinColumn(name = "app_user_id")
     private AppUser appUser;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne()//fetch = FetchType.LAZY
     @JoinColumn(name = "advert_id")
     private Advert advert;
