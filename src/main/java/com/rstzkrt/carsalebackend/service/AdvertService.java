@@ -9,5 +9,7 @@ public interface AdvertService {
     List<Advert> getAdverts();
     List<Advert> getAdvertsByUserId(Long userId);
 
+    Advert findAdvertById(Long id);
+
     Advert createAdvert(Advert advert);
 }

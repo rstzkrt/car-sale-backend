@@ -1,22 +1,23 @@
 package com.rstzkrt.carsalebackend.controller;
 
 import com.rstzkrt.carsalebackend.entity.Advert;
-import com.rstzkrt.carsalebackend.entity.Report;
+import com.rstzkrt.carsalebackend.entity.Car;
 import com.rstzkrt.carsalebackend.service.AdvertService;
-import com.rstzkrt.carsalebackend.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+//@RepositoryRestController
 @RequestMapping("/advert")
 public class AdvertController {
 
     @Autowired
     private AdvertService advertService;
-
 
     @GetMapping("/adverts")
     public ResponseEntity<List<Advert>> getAdverts(){
@@ -28,9 +29,10 @@ public class AdvertController {
         return ResponseEntity.ok(advertService.getAdvertsByUserId(userId));
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Advert> createAdverts(@RequestBody Advert advert){
-        //
-        return ResponseEntity.ok(advertService.createAdvert(advert));
+    @PostMapping("/{id}/addCar")
+    public ResponseEntity<Advert> createAdverts(@RequestBody Car car,@PathVariable Long id){
+        Advert advert=advertService.findAdvertById(id);
+        advert.setCar(car);
+        return ResponseEntity.ok(advert);
     }
 }

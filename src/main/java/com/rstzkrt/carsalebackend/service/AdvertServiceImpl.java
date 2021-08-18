@@ -39,6 +39,11 @@ public class AdvertServiceImpl implements AdvertService {
     }
 
     @Override
+    public Advert findAdvertById(Long id) {
+        return advertRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public Advert createAdvert(Advert advert) {
         return advertRepository.save(advert);
     }

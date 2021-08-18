@@ -1,14 +1,11 @@
 package com.rstzkrt.carsalebackend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -34,28 +31,25 @@ public class Advert {
     private String address;
 
     @OneToOne
-    @JoinColumn(name = "car_id")
-    private Car car;
+    @JoinColumn(name = "car")
+    private Car car=null;
 
-    @JsonBackReference
-    @ManyToOne()//fetch = FetchType.LAZY
-    @JoinColumn(name = "app_user_app_user_id")
-    private AppUser postedBy;
-
-    @JsonManagedReference
-    @OneToMany
-    private List<Report> reports;
+    @ManyToOne
+    @JoinColumn(name = "posted_by")
+    private AppUser postedBy=null;
 
     @OneToMany
-    private List<Image> Images;
+    private List<Report> reports=new ArrayList<>();
 
-    public Advert(String description, String title, LocalDate postDate, Double price, String address,Car car,AppUser postedBy) {
+    @OneToMany
+    private List<Image> Images=new ArrayList<>();
+
+    public Advert(String description, String title, LocalDate postDate, Double price, String address) {
         this.description = description;
         this.title = title;
         this.postDate = postDate;
         this.price = price;
         this.address = address;
-        this.car=car;
-        this.postedBy=postedBy;
     }
+
 }
