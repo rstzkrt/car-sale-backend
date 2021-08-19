@@ -1,5 +1,6 @@
 package com.rstzkrt.carsalebackend.service;
 
+import com.rstzkrt.carsalebackend.DTOs.UserDTO;
 import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.entity.Report;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,9 +35,11 @@ public class AppUserServiceImpl implements AppUserService{
         return userRepository.findById(userId);
     }
 
+    @Transactional
     @Override
-    public AppUser createUser(AppUser appUser) {
-        return userRepository.save(appUser);
+    public AppUser createUser(UserDTO userDTO) {
+        AppUser user=new AppUser(userDTO.getFirstName(),userDTO.getLastName(),userDTO.getEmail(),userDTO.getRole(),userDTO.getAvatar(),userDTO.getDateOfBirth());
+        return userRepository.save(user);
     }
 
     @Override

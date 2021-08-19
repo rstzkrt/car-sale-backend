@@ -1,10 +1,8 @@
 package com.rstzkrt.carsalebackend.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -32,14 +30,14 @@ public class AppUser {
     private String email;
     private String role;
     private String avatar;
+
+    @DateTimeFormat
     private LocalDate dateOfBirth;
 
-//    @JsonIgnore
-    //@JsonManagedReference
+    @JsonIgnore
     @OneToMany(targetEntity = Advert.class)
     private List<Advert> adverts=new ArrayList<>();
 
-    //@JsonManagedReference
     @OneToMany(targetEntity = Report.class)
     private List<Report> reports=new ArrayList<>();
 
@@ -58,4 +56,5 @@ public class AppUser {
         this.avatar = avatar;
         this.dateOfBirth = dateOfBirth;
     }
+
 }

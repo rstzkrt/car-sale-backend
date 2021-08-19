@@ -1,5 +1,6 @@
 package com.rstzkrt.carsalebackend.controller;
 
+import com.rstzkrt.carsalebackend.DTOs.UserDTO;
 import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.entity.Report;
@@ -47,9 +48,9 @@ public class AppUserController {
         return ResponseEntity.ok(appUserService.getUserById(userId).orElse(null));
     }
 
-
     @PostMapping("/create")
-    public ResponseEntity<AppUser> createAppUser(@RequestBody AppUser appUser) {
-        return ResponseEntity.ok().build();
+    public ResponseEntity<AppUser> createAppUser(@RequestBody UserDTO userDTO) {
+
+        return ResponseEntity.ok(appUserService.createUser(userDTO));
     }
 }
