@@ -51,6 +51,7 @@ public class AdvertServiceImpl implements AdvertService {
     public Advert createAdvert(AdvertDTO advertDTO, Long userID) {
         AppUser user = appUserRepository.findById(userID).orElse(null);
         Advert advert=new Advert();
+
         if(user!=null){
           advert=new Advert(advertDTO.getDescription(),
                   advertDTO.getTitle(),
@@ -59,6 +60,7 @@ public class AdvertServiceImpl implements AdvertService {
                   advertDTO.getAddress(),
                   new Car(advertDTO.getBrand(),advertDTO.getTransmission(),advertDTO.getMileage(),advertDTO.getBodyType(),advertDTO.getFuelType(),advertDTO.getCondition()),
                   user);
+          advert.setImages(advertDTO.getImages());//
           user.getAdverts().add(advert);
         }
         return advertRepository.save(advert);
