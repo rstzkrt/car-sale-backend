@@ -28,9 +28,6 @@ public class Car {
     private String fuelType;
     private String condition;
 
-    @OneToOne(mappedBy ="car")
-    private Advert advert;
-
     public Car(String brand, String transmission, Double mileage, String bodyType, String fuelType, String condition) {
         this.brand = brand;
         this.transmission = transmission;
