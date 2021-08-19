@@ -1,9 +1,9 @@
 package com.rstzkrt.carsalebackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +30,15 @@ public class Advert {
     private Double price;
     private String address;
 
-    @OneToOne
-    @JoinColumn(name = "car")
-    private Car car=null;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false)
+    private Car car;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "posted_by")
-    private AppUser postedBy=null;
+    private AppUser postedBy;
 
     @OneToMany
     private List<Report> reports=new ArrayList<>();
@@ -52,4 +54,13 @@ public class Advert {
         this.address = address;
     }
 
+    public Advert(String description, String title, LocalDate postDate, Double price, String address, Car car, AppUser postedBy) {
+        this.description = description;
+        this.title = title;
+        this.postDate = postDate;
+        this.price = price;
+        this.address = address;
+        this.car = car;
+        this.postedBy = postedBy;
+    }
 }

@@ -1,5 +1,6 @@
 package com.rstzkrt.carsalebackend.service;
 
+import com.rstzkrt.carsalebackend.DTOs.AdvertDTO;
 import com.rstzkrt.carsalebackend.entity.Advert;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface AdvertService {
 
     Advert findAdvertById(Long id);
 
-    Advert createAdvert(Advert advert);
+    Advert createAdvert(AdvertDTO advertDTO, Long userID);
 }

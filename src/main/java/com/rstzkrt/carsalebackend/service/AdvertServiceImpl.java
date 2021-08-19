@@ -1,11 +1,15 @@
 package com.rstzkrt.carsalebackend.service;
 
+import com.rstzkrt.carsalebackend.DTOs.AdvertDTO;
 import com.rstzkrt.carsalebackend.entity.Advert;
+import com.rstzkrt.carsalebackend.entity.AppUser;
+import com.rstzkrt.carsalebackend.entity.Car;
 import com.rstzkrt.carsalebackend.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -44,7 +48,19 @@ public class AdvertServiceImpl implements AdvertService {
     }
 
     @Override
-    public Advert createAdvert(Advert advert) {
+    public Advert createAdvert(AdvertDTO advertDTO, Long userID) {
+        AppUser user = appUserRepository.findById(userID).orElse(null);
+        Advert advert=new Advert();
+        if(user!=null){
+          advert=new Advert(advertDTO.getDescription(),
+                  advertDTO.getTitle(),
+                  advertDTO.getPostDate(),
+                  advertDTO.getPrice(),
+                  advertDTO.getAddress(),
+                  new Car(advertDTO.getBrand(),advertDTO.getTransmission(),advertDTO.getMileage(),advertDTO.getBodyType(),advertDTO.getFuelType(),advertDTO.getCondition()),
+                  user);
+          user.getAdverts().add(advert);
+        }
         return advertRepository.save(advert);
     }
 
