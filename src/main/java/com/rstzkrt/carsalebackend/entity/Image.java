@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
@@ -27,6 +28,7 @@ public class Image implements Serializable {
     @GeneratedValue(strategy = SEQUENCE,generator = "image_sequence")
     private Long id;
 
+    @NotNull
     private String link;
 
     public Image(String link) {

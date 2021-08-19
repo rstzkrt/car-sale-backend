@@ -2,8 +2,11 @@ package com.rstzkrt.carsalebackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +27,15 @@ public class Advert {
     @GeneratedValue(strategy = SEQUENCE,generator = "advert_sequence")
     private Long advertId;
 
+    @NotNull
     private String description;
+    @NotNull
     private String title;
+    @DateTimeFormat
     private LocalDate postDate;
+    @Min(0)
     private Double price;
     private String address;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false)

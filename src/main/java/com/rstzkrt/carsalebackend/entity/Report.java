@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -36,6 +37,7 @@ public class Report {
     @JoinColumn(name = "advert_id")
     private Advert advert;
 
+    @NotNull
     private String description;
 
     public Report(String description,AppUser appUser,Advert advert) {

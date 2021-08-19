@@ -2,9 +2,13 @@ package com.rstzkrt.carsalebackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.context.annotation.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +29,11 @@ public class AppUser {
     @GeneratedValue(strategy = SEQUENCE,generator = "app_user_sequence")
     private Long appUserId;
 
+    @Length(max = 50)
     private String firstName;
+    @Length(max = 50)
     private String lastName;
+    @Email()
     private String email;
     private String role;
     private String avatar;
