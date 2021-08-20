@@ -31,7 +31,7 @@ public class Advert {
     private String description;
     @NotNull
     private String title;
-    //@DateTimeFormat
+    @DateTimeFormat
     private LocalDate postDate;
     @Min(0)
     private Double price;
