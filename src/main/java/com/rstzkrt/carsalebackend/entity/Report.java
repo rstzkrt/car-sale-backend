@@ -37,7 +37,6 @@ public class Report {
     @JoinColumn(name = "advert_id")
     private Advert advert;
 
-    @NotNull
     private String description;
 
     public Report(String description,AppUser appUser,Advert advert) {

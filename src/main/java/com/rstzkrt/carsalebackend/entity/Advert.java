@@ -27,13 +27,9 @@ public class Advert {
     @GeneratedValue(strategy = SEQUENCE,generator = "advert_sequence")
     private Long advertId;
 
-    @NotNull
     private String description;
-    @NotNull
     private String title;
-    @DateTimeFormat
     private LocalDate postDate;
-    @Min(0)
     private Double price;
     private String address;
 
