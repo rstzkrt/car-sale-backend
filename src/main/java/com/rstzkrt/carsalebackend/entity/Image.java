@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,6 +28,7 @@ public class Image implements Serializable {
             allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE,generator = "image_sequence")
     private Long id;
+
 
     private String link;
 

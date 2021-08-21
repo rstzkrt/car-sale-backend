@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -37,6 +38,7 @@ public class Report {
     @JoinColumn(name = "advert_id")
     private Advert advert;
 
+    @Length(max = 255)
     private String description;
 
     public Report(String description,AppUser appUser,Advert advert) {

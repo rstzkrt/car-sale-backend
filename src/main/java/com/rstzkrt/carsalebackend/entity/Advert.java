@@ -2,6 +2,7 @@ package com.rstzkrt.carsalebackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -27,9 +28,13 @@ public class Advert {
     @GeneratedValue(strategy = SEQUENCE,generator = "advert_sequence")
     private Long advertId;
 
+    @Length(max = 255)
     private String description;
+    @Length(max = 100)
     private String title;
+    @DateTimeFormat
     private LocalDate postDate;
+    @Min(0)
     private Double price;
     private String address;
 

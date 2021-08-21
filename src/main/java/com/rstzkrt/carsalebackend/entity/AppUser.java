@@ -29,11 +29,17 @@ public class AppUser {
     @GeneratedValue(strategy = SEQUENCE,generator = "app_user_sequence")
     private Long appUserId;
 
+    @Length(max = 40)
     private String firstName;
+    @Length(max = 50)
     private String lastName;
+    @Email
     private String email;
+
     private String role;
+
     private String avatar;
+    @DateTimeFormat
     private LocalDate dateOfBirth;
 
     @JsonIgnore
