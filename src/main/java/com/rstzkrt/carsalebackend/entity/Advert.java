@@ -38,7 +38,7 @@ public class Advert {
     private Double price;
     private String address;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()//cascade = CascadeType.ALL
     @JoinColumn()
     private Car car;
 
