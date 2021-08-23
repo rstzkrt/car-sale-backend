@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Projection(name = "advertProjection", types = { Advert.class })
-interface AdvertProjection {
+public interface AdvertProjection {
 
     Long getAdvertId();
 
