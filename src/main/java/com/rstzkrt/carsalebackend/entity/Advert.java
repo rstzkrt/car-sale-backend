@@ -39,7 +39,7 @@ public class Advert {
     private String address;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false)
+    @JoinColumn()
     private Car car;
 
     @JsonIgnore
