@@ -29,7 +29,6 @@ public class Image implements Serializable {
     @GeneratedValue(strategy = SEQUENCE,generator = "image_sequence")
     private Long id;
 
-
     private String link;
 
     public Image(String link) {

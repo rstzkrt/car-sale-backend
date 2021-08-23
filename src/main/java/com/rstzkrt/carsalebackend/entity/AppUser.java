@@ -29,27 +29,21 @@ public class AppUser {
     @GeneratedValue(strategy = SEQUENCE,generator = "app_user_sequence")
     private Long appUserId;
 
-    @Length(max = 40)
     private String firstName;
-    @Length(max = 50)
     private String lastName;
-    @Email
     private String email;
-
     private String role;
-
     private String avatar;
-    @DateTimeFormat
     private LocalDate dateOfBirth;
 
     @JsonIgnore
-    @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.REMOVE)
     private List<Advert> adverts=new ArrayList<>();
 
-    @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Report.class,cascade = CascadeType.REMOVE)
     private List<Report> reports=new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
             name = "user_favourites",
             joinColumns = @JoinColumn(name = "app_user_id"),

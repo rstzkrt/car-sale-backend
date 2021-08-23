@@ -28,18 +28,14 @@ public class Advert {
     @GeneratedValue(strategy = SEQUENCE,generator = "advert_sequence")
     private Long advertId;
 
-    @Length(max = 255)
     private String description;
-    @Length(max = 100)
     private String title;
-    @DateTimeFormat
     private LocalDate postDate;
-    @Min(0)
     private Double price;
     private String address;
 
-    @OneToOne()//cascade = CascadeType.ALL
-    @JoinColumn()
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private Car car;
 
     @JsonIgnore

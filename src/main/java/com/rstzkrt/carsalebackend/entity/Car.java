@@ -24,17 +24,11 @@ public class Car {
     @GeneratedValue(strategy = SEQUENCE,generator = "car_sequence")
     private Long carId;
 
-    @Length(max = 40)
     private String brand;
-    @Length(max = 50)
     private String transmission;
-    @Min(0)
     private Double mileage ;
-    @Length(max = 255)
     private String bodyType;
-    @Length(max = 255)
     private String fuelType;
-    @Length(max = 255)
     private String condition;
 
     public Car(String brand, String transmission, Double mileage, String bodyType, String fuelType, String condition) {
