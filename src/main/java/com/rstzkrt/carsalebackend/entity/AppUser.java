@@ -43,13 +43,13 @@ public class AppUser {
     private LocalDate dateOfBirth;
 
     @JsonIgnore
-    @OneToMany(targetEntity = Advert.class)
+    @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
     private List<Advert> adverts=new ArrayList<>();
 
-    @OneToMany(targetEntity = Report.class)
+    @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
     private List<Report> reports=new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_favourites",
             joinColumns = @JoinColumn(name = "app_user_id"),
