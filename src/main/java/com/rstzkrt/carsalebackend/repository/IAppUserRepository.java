@@ -1,6 +1,6 @@
 package com.rstzkrt.carsalebackend.repository;
 
-import com.rstzkrt.carsalebackend.config.AppUserProjection;
+import com.rstzkrt.carsalebackend.projection.AppUserProjection;
 import com.rstzkrt.carsalebackend.entity.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

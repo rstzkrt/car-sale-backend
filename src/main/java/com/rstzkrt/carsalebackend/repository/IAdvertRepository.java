@@ -1,6 +1,6 @@
 package com.rstzkrt.carsalebackend.repository;
 
-import com.rstzkrt.carsalebackend.config.AdvertProjection;
+import com.rstzkrt.carsalebackend.projection.AdvertProjection;
 import com.rstzkrt.carsalebackend.entity.Advert;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

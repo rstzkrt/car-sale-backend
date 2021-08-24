@@ -22,13 +22,7 @@ public class AdvertServiceImpl implements AdvertService {
     @Autowired
     private IAdvertRepository advertRepository;
     @Autowired
-    private ICarRepository carRepository;
-    @Autowired
     private IAppUserRepository appUserRepository;
-    @Autowired
-    private IImageRepository imageRepository;
-    @Autowired
-    private IReportRepository reportRepository;
 
     public List<Advert> getAdverts(List<Long> idList){
         return advertRepository.findByAdvertIdIn(idList);

@@ -1,4 +1,4 @@
-package com.rstzkrt.carsalebackend.config;
+package com.rstzkrt.carsalebackend.projection;
 
 import com.rstzkrt.carsalebackend.entity.*;
 import org.springframework.data.rest.core.config.Projection;
