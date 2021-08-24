@@ -1,7 +1,6 @@
 package com.rstzkrt.carsalebackend.config;
 
 import com.rstzkrt.carsalebackend.entity.*;
-import org.apache.tomcat.jni.Local;
 import org.springframework.data.rest.core.config.Projection;
 
 import java.time.LocalDate;
@@ -22,7 +21,7 @@ public interface AppUserProjection {
 
     String getAvatar();
 
-    Local getDateOfBirth();
+    LocalDate getDateOfBirth();
 
     List<Advert> getAdverts();
 
