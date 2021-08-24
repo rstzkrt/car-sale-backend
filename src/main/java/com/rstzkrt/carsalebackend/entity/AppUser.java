@@ -37,6 +37,7 @@ public class AppUser {
     private LocalDate dateOfBirth;
 
 
+    @JsonIgnore
     @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.REMOVE)
     private List<Advert> adverts=new ArrayList<>();
 
