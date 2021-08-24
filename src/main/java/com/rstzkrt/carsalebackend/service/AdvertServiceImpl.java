@@ -61,7 +61,6 @@ public class AdvertServiceImpl implements AdvertService {
             Car car =new Car(advertDTO.getBrand(),advertDTO.getTransmission(),advertDTO.getMileage(),advertDTO.getBodyType(),advertDTO.getFuelType(),advertDTO.getCondition());
           advert=new Advert(advertDTO.getDescription(),
                   advertDTO.getTitle(),
-                  advertDTO.getPostDate(),
                   advertDTO.getPrice(),
                   advertDTO.getAddress(),
                   car,

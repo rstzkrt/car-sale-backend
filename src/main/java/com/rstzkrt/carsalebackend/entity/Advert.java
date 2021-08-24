@@ -30,7 +30,7 @@ public class Advert {
 
     private String description;
     private String title;
-    private LocalDate postDate;
+    private LocalDate postDate ;
     private Double price;
     private String address;
 
@@ -49,18 +49,18 @@ public class Advert {
     @OneToMany
     private List<Image> Images=new ArrayList<>();
 
-    public Advert(String description, String title, LocalDate postDate, Double price, String address) {
+    public Advert(String description, String title, Double price, String address) {
         this.description = description;
         this.title = title;
-        this.postDate = postDate;
+        this.postDate = LocalDate.now();
         this.price = price;
         this.address = address;
     }
 
-    public Advert(String description, String title, LocalDate postDate, Double price, String address, Car car, AppUser postedBy) {
+    public Advert(String description, String title, Double price, String address, Car car, AppUser postedBy) {
         this.description = description;
         this.title = title;
-        this.postDate = postDate;
+        this.postDate = LocalDate.now();
         this.price = price;
         this.address = address;
         this.car = car;
