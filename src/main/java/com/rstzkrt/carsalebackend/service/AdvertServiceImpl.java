@@ -4,12 +4,14 @@ import com.rstzkrt.carsalebackend.DTOs.AdvertDTO;
 import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.entity.Car;
+import com.rstzkrt.carsalebackend.entity.Image;
 import com.rstzkrt.carsalebackend.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -51,6 +53,9 @@ public class AdvertServiceImpl implements AdvertService {
     public Advert createAdvert(AdvertDTO advertDTO, Long userID) {
         AppUser user = appUserRepository.findById(userID).orElse(null);
         Advert advert=new Advert();
+        List<Image> images=new ArrayList<>();
+        Image image= new Image(advertDTO.getImageLink());
+        images.add(image);
 
         if(user!=null){
             Car car =new Car(advertDTO.getBrand(),advertDTO.getTransmission(),advertDTO.getMileage(),advertDTO.getBodyType(),advertDTO.getFuelType(),advertDTO.getCondition());
@@ -61,7 +66,7 @@ public class AdvertServiceImpl implements AdvertService {
                   advertDTO.getAddress(),
                   car,
                   user);
-          advert.setImages(advertDTO.getImages());//
+          advert.setImages(images);//
           user.getAdverts().add(advert);
         }
         return advertRepository.save(advert);

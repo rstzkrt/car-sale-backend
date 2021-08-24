@@ -23,8 +23,9 @@ public class AdvertDTO {
     private LocalDate postDate;
     private Double price;
     private String address;
-//    private List<Report> reports;
-    private List<Image> Images;
+
+    //Image
+    private String imageLink;
 
     //Car
     private String brand;

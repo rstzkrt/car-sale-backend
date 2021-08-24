@@ -36,5 +36,4 @@ public class AdvertController {
         return ResponseEntity.ok(advertService.createAdvert(advertDTO,userId));
     }
 
-
 }
