@@ -1,14 +1,18 @@
 package com.rstzkrt.carsalebackend.repository;
 
+import com.rstzkrt.carsalebackend.config.AdvertProjection;
+import com.rstzkrt.carsalebackend.config.ReportProjection;
 import com.rstzkrt.carsalebackend.entity.Report;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @CrossOrigin("http://localhost:4200/")
+@RepositoryRestResource(excerptProjection = ReportProjection.class)
 public interface IReportRepository extends JpaRepository<Report,Long> {
 
     @Query(value = "select reports_report_id from app_user_reports where app_user_app_user_id=:userId",nativeQuery = true)
