@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.config.Projection;
 import java.time.LocalDate;
 import java.util.List;
 
-@Projection(name = "userProjection", types = { AppUser.class })
+@Projection(name = "appuserProjection", types = { AppUser.class })
 public interface AppUserProjection {
 
     Long getAppUserId();
