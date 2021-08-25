@@ -45,7 +45,7 @@ public class AppUser {
     @OneToMany(targetEntity = Report.class)
     private List<Report> reports=new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany()
     @JoinTable(
             name = "user_favourites",
             joinColumns = @JoinColumn(name = "app_user_id"),
