@@ -38,11 +38,11 @@ public class AppUser {
 
 
     @JsonIgnore
-    @OneToMany(targetEntity = Advert.class ,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Advert.class)
     private List<Advert> adverts=new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(targetEntity = Report.class,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Report.class)
     private List<Report> reports=new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.REMOVE)
