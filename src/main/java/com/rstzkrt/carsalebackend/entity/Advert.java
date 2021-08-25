@@ -43,10 +43,10 @@ public class Advert {
     @JoinColumn(name = "posted_by")
     private AppUser postedBy;
 
-    @OneToMany
+    @OneToMany( cascade = CascadeType.ALL)
     private List<Report> reports=new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Image> Images=new ArrayList<>();
 
     public Advert(String description, String title, Double price, String address) {

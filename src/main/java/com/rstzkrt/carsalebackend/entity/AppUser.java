@@ -38,14 +38,15 @@ public class AppUser {
 
 
     @JsonIgnore
-    @OneToMany(targetEntity = Advert.class)
+    @OneToMany(targetEntity = Advert.class, cascade = CascadeType.ALL)
     private List<Advert> adverts=new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(targetEntity = Report.class)
+    @OneToMany(targetEntity = Report.class , cascade = CascadeType.ALL)
     private List<Report> reports=new ArrayList<>();
 
-    @ManyToMany()
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_favourites",
             joinColumns = @JoinColumn(name = "app_user_id"),
