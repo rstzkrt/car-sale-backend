@@ -19,6 +19,7 @@ public interface IAdvertRepository extends JpaRepository<Advert,Long> {
 
     List<Advert> findAllByPostedBy_AppUserId(Long userId);
 
+    List<Advert>findAllByCarBrand(String brand);
 
     List<Advert> findAllByCarBrandLike(String brand);
 
