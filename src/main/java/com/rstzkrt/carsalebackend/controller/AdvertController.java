@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:4200/")
 @RestController
 @RepositoryRestController
 @RequestMapping("/advert")
@@ -33,6 +34,7 @@ public class AdvertController {
         return ResponseEntity.ok(advertService.createAdvert(advertDTO,userId));
     }
 
+    @CrossOrigin("http://localhost:4200/")
     @GetMapping("/advert/car/{brand}")
     public ResponseEntity<List<Advert>> getAdvertByCarBrand(@PathVariable String brand){
         return ResponseEntity.ok(advertService.getAdvertsByCarBrand(brand));
