@@ -19,6 +19,9 @@ public interface IAdvertRepository extends JpaRepository<Advert,Long> {
 
     List<Advert> findAllByPostedBy_AppUserId(Long userId);
 
+
+    List<Advert> findAllByCarBrandLike(String brand);
+
     @Transactional
     @Modifying
     @Query(value =

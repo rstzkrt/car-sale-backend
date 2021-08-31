@@ -11,6 +11,10 @@ public interface AdvertService {
     List<Advert> getAdvertsByUserId(Long userId);
 
     Advert findAdvertById(Long id);
+    List<Advert> getAdvertsByCarBrand(String brand);
 
     Advert createAdvert(AdvertDTO advertDTO, Long userID);
+
+
+
 }

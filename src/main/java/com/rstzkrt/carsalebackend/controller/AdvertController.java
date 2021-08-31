@@ -18,12 +18,12 @@ public class AdvertController {
     @Autowired
     private AdvertService advertService;
 
-    @GetMapping("/adverts")
+    @GetMapping("/advert")
     public ResponseEntity<List<Advert>> getAdverts(){
         return ResponseEntity.ok(advertService.getAdverts());
     }
 
-    @GetMapping("/userAdverts/{userId}")
+    @GetMapping("/advert/postedBy/{userId}")
     public ResponseEntity<List<Advert>> getAdvertsByUserId(@PathVariable Long userId){
         return ResponseEntity.ok(advertService.getAdvertsByUserId(userId));
     }
@@ -33,4 +33,8 @@ public class AdvertController {
         return ResponseEntity.ok(advertService.createAdvert(advertDTO,userId));
     }
 
+    @GetMapping("/advert/car/{brand}")
+    public ResponseEntity<List<Advert>> getAdvertByCarBrand(@PathVariable String brand){
+        return ResponseEntity.ok(advertService.getAdvertsByCarBrand(brand));
+    }
 }

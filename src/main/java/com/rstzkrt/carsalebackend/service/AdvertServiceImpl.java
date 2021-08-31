@@ -39,6 +39,11 @@ public class AdvertServiceImpl implements AdvertService {
     }
 
     @Override
+    public List<Advert> getAdvertsByCarBrand(String brand) {
+        return advertRepository.findAllByCarBrandLike(brand);
+    }
+
+    @Override
     public Advert findAdvertById(Long id) {
         return advertRepository.findById(id).orElse(null);
     }
