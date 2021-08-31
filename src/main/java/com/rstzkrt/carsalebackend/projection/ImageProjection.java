@@ -9,7 +9,7 @@ import java.util.List;
 @Projection(name = "imageProjection", types = { Image.class })
 public interface ImageProjection {
 
-    Long getImageId();
+    Long getId();
 
     String getLink();
 
