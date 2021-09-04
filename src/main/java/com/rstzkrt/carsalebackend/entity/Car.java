@@ -12,8 +12,8 @@ import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class Car {
 

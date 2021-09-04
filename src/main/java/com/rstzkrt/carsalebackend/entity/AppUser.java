@@ -2,6 +2,8 @@ package com.rstzkrt.carsalebackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.context.annotation.Role;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,11 +39,11 @@ public class AppUser {
     private LocalDate dateOfBirth;
 
 
-    @JsonIgnore
-    @OneToMany(targetEntity = Advert.class, cascade = CascadeType.ALL)
+    //@JsonIgnore
+    @OneToMany(targetEntity = Advert.class,cascade = CascadeType.PERSIST)
     private List<Advert> adverts=new ArrayList<>();
 
-    @JsonIgnore
+    //@JsonIgnore
     @OneToMany(targetEntity = Report.class , cascade = CascadeType.ALL)
     private List<Report> reports=new ArrayList<>();
 
@@ -61,5 +63,4 @@ public class AppUser {
         this.avatar = avatar;
         this.dateOfBirth = dateOfBirth;
     }
-
 }
