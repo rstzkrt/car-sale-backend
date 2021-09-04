@@ -16,7 +16,7 @@ import java.util.List;
 public interface IAdvertRepository extends JpaRepository<Advert,Long> {
     List<Advert> findByAdvertIdIn(List<Long> AdvertIds);
 
-    Page<Advert> findByTitleContaining(@RequestParam String keyword,Pageable pageable);
+    Page<Advert> findByTitleContaining(@RequestParam("keyword") String keyword,Pageable pageable);
 
     List<Advert> findAllByPostedBy_AppUserId(Long userId);
 
