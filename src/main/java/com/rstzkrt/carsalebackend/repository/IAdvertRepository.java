@@ -16,6 +16,7 @@ import java.util.List;
 public interface IAdvertRepository extends JpaRepository<Advert,Long> {
     List<Advert> findByAdvertIdIn(List<Long> AdvertIds);
 
+    @CrossOrigin("http://localhost:4200/")
     Page<Advert> findByTitleContaining(@RequestParam("keyword") String keyword,Pageable pageable);
 
     List<Advert> findAllByPostedBy_AppUserId(Long userId);

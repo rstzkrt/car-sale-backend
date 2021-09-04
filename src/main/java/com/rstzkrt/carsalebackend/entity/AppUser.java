@@ -40,7 +40,7 @@ public class AppUser {
 
 
     //@JsonIgnore
-    @OneToMany(targetEntity = Advert.class,cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "appUser" ,cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Advert> adverts=new ArrayList<>();
 
     //@JsonIgnore

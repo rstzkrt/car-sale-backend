@@ -39,7 +39,7 @@ public class Advert {
     private Car car;
 
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne//cascade = CascadeType.PERSIST
     @JoinColumn(name = "posted_by")
     private AppUser postedBy;
 

@@ -25,7 +25,6 @@ public class AdvertServiceImpl implements AdvertService {
     @Autowired
     private IAppUserRepository appUserRepository;
 
-
     @Autowired
     private ICarRepository carRepository;
 
