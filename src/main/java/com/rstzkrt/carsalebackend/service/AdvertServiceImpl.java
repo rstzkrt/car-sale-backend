@@ -1,8 +1,6 @@
 package com.rstzkrt.carsalebackend.service;
 
 import com.rstzkrt.carsalebackend.DTOs.AdvertDTO;
-import com.rstzkrt.carsalebackend.elasticsearch.ESearchAdvert;
-import com.rstzkrt.carsalebackend.elasticsearch.ESearchAdvertRepository;
 import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.entity.Car;
@@ -23,9 +21,6 @@ public class AdvertServiceImpl implements AdvertService {
 
     @Autowired
     private IAdvertRepository advertRepository;
-
-//    @Autowired
-//    private ESearchAdvertRepository eSearchAdvertRepository;
 
     @Autowired
     private IAppUserRepository appUserRepository;
@@ -79,18 +74,7 @@ public class AdvertServiceImpl implements AdvertService {
                   user);
           advert.setImages(images);//
           user.getAdverts().add(advert);
-
-          advertRepository.save(advert);
-
-          //eSearchAdvertRepository.save(new ESearchAdvert(advert));
         }
-        return advert;
+        return advertRepository.save(advert);
     }
-
-//    @Transactional
-//    @Override
-//    public void removeAdvert(Long id) {
-//        advertRepository.deleteAdvertByAdvertId(id);
-//        eSearchAdvertRepository.deleteESearchAdvertByAdvertId(id);
-//    }
 }

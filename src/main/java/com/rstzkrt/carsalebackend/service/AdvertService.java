@@ -10,8 +10,6 @@ public interface AdvertService {
     List<Advert> getAdverts(List<Long> idList);
     List<Advert> getAdverts();
     List<Advert> getAdvertsByUserId(Long userId);
-//
-//    List<Advert> SearchByKeyword(String keyword);
 
     Advert findAdvertById(Long id);
     List<Advert> getAdvertsByCarBrand(String brand);
@@ -19,7 +17,5 @@ public interface AdvertService {
     @Transactional
     Advert createAdvert(AdvertDTO advertDTO, Long userID);
 
-//    @Transactional
-//    void removeAdvert(Long id);
 
 }

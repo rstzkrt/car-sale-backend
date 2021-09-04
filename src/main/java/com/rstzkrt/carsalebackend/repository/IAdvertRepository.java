@@ -16,8 +16,6 @@ import java.util.List;
 public interface IAdvertRepository extends JpaRepository<Advert,Long> {
     List<Advert> findByAdvertIdIn(List<Long> AdvertIds);
 
-    //void deleteAdvertByAdvertId(Long advertId);
-
     Page<Advert> findByTitleContaining(@RequestParam String keyword,Pageable pageable);
 
     List<Advert> findAllByPostedBy_AppUserId(Long userId);
