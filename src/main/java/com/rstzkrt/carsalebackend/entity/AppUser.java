@@ -38,12 +38,9 @@ public class AppUser {
     private String avatar;
     private LocalDate dateOfBirth;
 
-
-    //@JsonIgnore
-    @OneToMany(mappedBy = "appUser" ,cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "app_user" ,cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Advert> adverts=new ArrayList<>();
 
-    //@JsonIgnore
     @OneToMany(targetEntity = Report.class , cascade = CascadeType.ALL)
     private List<Report> reports=new ArrayList<>();
 
