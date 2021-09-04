@@ -1,6 +1,8 @@
 package com.rstzkrt.carsalebackend.service;
 
 import com.rstzkrt.carsalebackend.DTOs.AdvertDTO;
+import com.rstzkrt.carsalebackend.elasticsearch.ESearchAdvert;
+import com.rstzkrt.carsalebackend.elasticsearch.ESearchAdvertRepository;
 import com.rstzkrt.carsalebackend.entity.Advert;
 import com.rstzkrt.carsalebackend.entity.AppUser;
 import com.rstzkrt.carsalebackend.entity.Car;
@@ -21,8 +23,17 @@ public class AdvertServiceImpl implements AdvertService {
 
     @Autowired
     private IAdvertRepository advertRepository;
+
+//    @Autowired
+//    private ESearchAdvertRepository eSearchAdvertRepository;
+
     @Autowired
     private IAppUserRepository appUserRepository;
+
+
+    @Autowired
+    private ICarRepository carRepository;
+
 
     public List<Advert> getAdverts(List<Long> idList){
         return advertRepository.findByAdvertIdIn(idList);
@@ -48,6 +59,7 @@ public class AdvertServiceImpl implements AdvertService {
         return advertRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     @Override
     public Advert createAdvert(AdvertDTO advertDTO, Long userID) {
         AppUser user = appUserRepository.findById(userID).orElse(null);
@@ -56,8 +68,9 @@ public class AdvertServiceImpl implements AdvertService {
         Image image= new Image(advertDTO.getImageLink());
         images.add(image);
 
+        Car car =new Car(advertDTO.getBrand(),advertDTO.getTransmission(),advertDTO.getMileage(),advertDTO.getBodyType(),advertDTO.getFuelType(),advertDTO.getCondition());
+        carRepository.save(car);
         if(user!=null){
-            Car car =new Car(advertDTO.getBrand(),advertDTO.getTransmission(),advertDTO.getMileage(),advertDTO.getBodyType(),advertDTO.getFuelType(),advertDTO.getCondition());
           advert=new Advert(advertDTO.getDescription(),
                   advertDTO.getTitle(),
                   advertDTO.getPrice(),
@@ -66,8 +79,18 @@ public class AdvertServiceImpl implements AdvertService {
                   user);
           advert.setImages(images);//
           user.getAdverts().add(advert);
+
+          advertRepository.save(advert);
+
+          //eSearchAdvertRepository.save(new ESearchAdvert(advert));
         }
-        return advertRepository.save(advert);
+        return advert;
     }
 
+//    @Transactional
+//    @Override
+//    public void removeAdvert(Long id) {
+//        advertRepository.deleteAdvertByAdvertId(id);
+//        eSearchAdvertRepository.deleteESearchAdvertByAdvertId(id);
+//    }
 }
