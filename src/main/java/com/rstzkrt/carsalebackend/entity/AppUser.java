@@ -7,6 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.context.annotation.Role;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -38,7 +39,8 @@ public class AppUser {
     private String avatar;
     private LocalDate dateOfBirth;
 
-    @OneToMany(mappedBy = "app_user" ,cascade = CascadeType.ALL,orphanRemoval = true)
+
+    @OneToMany(mappedBy = "postedBy",cascade = CascadeType.REMOVE)
     private List<Advert> adverts=new ArrayList<>();
 
     @OneToMany(targetEntity = Report.class , cascade = CascadeType.ALL)
